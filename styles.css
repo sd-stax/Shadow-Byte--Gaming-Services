@@ -1,0 +1,114 @@
+
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #ddd;
+    }
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+    section {
+      padding: 20px;
+      background-color: #fff;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .play-button:hover {
+      background-color: #d32f2f;
+    }
+    .slider {
+      width: 100%;
+      height: 400px;
+      background-color: #333;
+      overflow: hidden;
+      position: relative;
+
+     
+    }
+    .slider img {
+      width: 100%;
+      height: 500px;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .slider img.active {
+      opacity: 1;
+  
+
+    }
+    .slider-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+             border:10px;
+        padding:30px;
+
+    }
+    .slider-controls button {
+      background-color: transparent;
+      color: #fff;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      margin: 0 5px;
+      transition: color 0.3s;
+             border:10px;
+        padding:30px;
+
+    }
+    .slider-controls button:hover {
+      color: #f44336;
+    }
+    .gallery {
+
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
