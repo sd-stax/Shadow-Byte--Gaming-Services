@@ -1,0 +1,228 @@
+<!DOCTYPE html> <html><head>
+  <title>Shadow Byte - Gaming Services</title>
+
+
+<style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #ddd;
+    }
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+    section {
+      padding: 20px;
+      background-color: #fff;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .play-button:hover {
+      background-color: #d32f2f;
+    }
+    .slider {
+      width: 100%;
+      height: 400px;
+      background-color: #333;
+      overflow: hidden;
+      position: relative;
+
+     
+    }
+    .slider img {
+      width: 100%;
+      height: 500px;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .slider img.active {
+      opacity: 1;
+  
+
+    }
+    .slider-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+             border:10px;
+        padding:30px;
+
+    }
+    .slider-controls button {
+      background-color: transparent;
+      color: #fff;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      margin: 0 5px;
+      transition: color 0.3s;
+             border:10px;
+        padding:30px;
+
+    }
+    .slider-controls button:hover {
+      color: #f44336;
+    }
+    .gallery {
+
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+</style></head>
+<body>
+  <header>
+    <h1>Welcome to Shadow Byte</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a onclick="navigateTo('home')">Home</a></li>
+      <li><a onclick="navigateTo('about')">About</a></li>
+      <li><a onclick="navigateTo('services')">Services</a></li>
+      <li><a onclick="navigateTo('contact')">Contact</a></li>
+    </ul>
+  </nav>
+  <section id="home">
+    <h2>Home</h2>
+    <p>Welcome to Shadow Byte! We provide top-notch gaming services to enhance your gaming experience and take it to the next level.</p>
+   
+    <div class="slider">
+      <img src="slider1.jpg" alt="Slider Image 1" class="active">
+      <img src="slider2.jpg" alt="Slider Image 2">
+      <img src="slider3.jpg" alt="Slider Image 3">
+      <div class="slider-controls">
+        <button onclick="previousSlide()">❮</button>
+        <button onclick="nextSlide()">❯</button>
+      </div>
+    </div>
+    <div class="gallery">
+      <img src="game1" alt="">
+      <img src="game2.">
+      <img src="game3.">
+      <img src="game4.">
+      <img src="game5.jpg">
+      <img src="game6.jpg">
+    </div>
+  </section>
+  <section id="about">
+    <h2>About</h2>
+    <p>Shadow Byte is a team of passionate gamers and skilled developers dedicated to delivering exceptional gaming services. We understand the importance of immersive gameplay and strive to create customized solutions tailored to meet the unique needs of each gamer.</p>
+    <p>Our mission is to provide a wide range of services that cater to various aspects of gaming. From game development and modding to game server hosting and community management, we cover it all.</p>
+    <p>At Shadow Byte, we are committed to staying at the forefront of the gaming industry, exploring new technologies and trends to bring you innovative and exciting gaming experiences.</p>
+  </section>
+  <section id="services">
+    <h2>Services</h2>
+    <p>Discover the range of gaming services we offer:</p>
+    <ul>
+      <li>Game development</li>
+      <li>Game modding</li>
+      <li>Game server hosting</li>
+      <li>Game customization</li>
+      <li>Community management</li>
+      <li>Gaming consultancy</li>
+    </ul>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Get in touch with us to discuss your gaming needs or ask any questions you may have. We're here to help!</p>
+  </section>
+  <footer>
+    <p>© 2023 Shadow Byte. All rights reserved.</p>
+  </footer>
+
+
+<script>
+/*__POPCODESTART__*/
+var slideIndex = 0;
+var slides = document.querySelectorAll('.slider img');
+
+function showSlide(index) {
+  slides.forEach(function (slide) {
+    return slide.classList.remove('active');
+  });
+  slides[index].classList.add('active');
+}
+
+function previousSlide() {
+  slideIndex--;
+
+  if (slideIndex < 0) {
+    slideIndex = slides.length - 1;
+  }
+
+  showSlide(slideIndex);
+}
+
+function nextSlide() {
+  slideIndex++;
+
+  if (slideIndex >= slides.length) {
+    slideIndex = 0;
+  }
+
+  showSlide(slideIndex);
+}
+
+function playSong() {
+  // Add your own logic to play the song here
+  // For example, you can use an <audio> element or a JavaScript audio library
+  alert("Song is playing!");
+}
+
+function navigateTo(sectionId) {
+  var section = document.getElementById(sectionId);
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcGNvZGVQcmV2aWV3LmpzIl0sIm5hbWVzIjpbInNsaWRlSW5kZXgiLCJzbGlkZXMiLCJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3JBbGwiLCJzaG93U2xpZGUiLCJpbmRleCIsImZvckVhY2giLCJzbGlkZSIsImNsYXNzTGlzdCIsInJlbW92ZSIsImFkZCIsInByZXZpb3VzU2xpZGUiLCJsZW5ndGgiLCJuZXh0U2xpZGUiLCJwbGF5U29uZyIsImFsZXJ0IiwibmF2aWdhdGVUbyIsInNlY3Rpb25JZCIsInNlY3Rpb24iLCJnZXRFbGVtZW50QnlJZCIsInNjcm9sbEludG9WaWV3IiwiYmVoYXZpb3IiXSwibWFwcGluZ3MiOiJBQUNJLElBQUlBLFVBQVUsR0FBRyxDQUFqQjtBQUNBLElBQU1DLE1BQU0sR0FBR0MsUUFBUSxDQUFDQyxnQkFBVCxDQUEwQixhQUExQixDQUFmOztBQUVBLFNBQVNDLFNBQVQsQ0FBbUJDLEtBQW5CLEVBQTBCO0FBQ3hCSixFQUFBQSxNQUFNLENBQUNLLE9BQVAsQ0FBZSxVQUFBQyxLQUFLO0FBQUEsV0FBSUEsS0FBSyxDQUFDQyxTQUFOLENBQWdCQyxNQUFoQixDQUF1QixRQUF2QixDQUFKO0FBQUEsR0FBcEI7QUFDQVIsRUFBQUEsTUFBTSxDQUFDSSxLQUFELENBQU4sQ0FBY0csU0FBZCxDQUF3QkUsR0FBeEIsQ0FBNEIsUUFBNUI7QUFDRDs7QUFFRCxTQUFTQyxhQUFULEdBQXlCO0FBQ3ZCWCxFQUFBQSxVQUFVOztBQUNWLE1BQUlBLFVBQVUsR0FBRyxDQUFqQixFQUFvQjtBQUNsQkEsSUFBQUEsVUFBVSxHQUFHQyxNQUFNLENBQUNXLE1BQVAsR0FBZ0IsQ0FBN0I7QUFDRDs7QUFDRFIsRUFBQUEsU0FBUyxDQUFDSixVQUFELENBQVQ7QUFDRDs7QUFFRCxTQUFTYSxTQUFULEdBQXFCO0FBQ25CYixFQUFBQSxVQUFVOztBQUNWLE1BQUlBLFVBQVUsSUFBSUMsTUFBTSxDQUFDVyxNQUF6QixFQUFpQztBQUMvQlosSUFBQUEsVUFBVSxHQUFHLENBQWI7QUFDRDs7QUFDREksRUFBQUEsU0FBUyxDQUFDSixVQUFELENBQVQ7QUFDRDs7QUFDRCxTQUFTYyxRQUFULEdBQW9CO0FBQ2xCO0FBQ0E7QUFDQUMsRUFBQUEsS0FBSyxDQUFDLGtCQUFELENBQUw7QUFDRDs7QUFFRCxTQUFTQyxVQUFULENBQW9CQyxTQUFwQixFQUErQjtBQUM3QixNQUFNQyxPQUFPLEdBQUdoQixRQUFRLENBQUNpQixjQUFULENBQXdCRixTQUF4QixDQUFoQjs7QUFDQSxNQUFJQyxPQUFKLEVBQWE7QUFDWEEsSUFBQUEsT0FBTyxDQUFDRSxjQUFSLENBQXVCO0FBQUVDLE1BQUFBLFFBQVEsRUFBRTtBQUFaLEtBQXZCO0FBQ0Q7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIlxuICAgIGxldCBzbGlkZUluZGV4ID0gMDtcbiAgICBjb25zdCBzbGlkZXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcuc2xpZGVyIGltZycpO1xuXG4gICAgZnVuY3Rpb24gc2hvd1NsaWRlKGluZGV4KSB7XG4gICAgICBzbGlkZXMuZm9yRWFjaChzbGlkZSA9PiBzbGlkZS5jbGFzc0xpc3QucmVtb3ZlKCdhY3RpdmUnKSk7XG4gICAgICBzbGlkZXNbaW5kZXhdLmNsYXNzTGlzdC5hZGQoJ2FjdGl2ZScpO1xuICAgIH1cblxuICAgIGZ1bmN0aW9uIHByZXZpb3VzU2xpZGUoKSB7XG4gICAgICBzbGlkZUluZGV4LS07XG4gICAgICBpZiAoc2xpZGVJbmRleCA8IDApIHtcbiAgICAgICAgc2xpZGVJbmRleCA9IHNsaWRlcy5sZW5ndGggLSAxO1xuICAgICAgfVxuICAgICAgc2hvd1NsaWRlKHNsaWRlSW5kZXgpO1xuICAgIH1cblxuICAgIGZ1bmN0aW9uIG5leHRTbGlkZSgpIHtcbiAgICAgIHNsaWRlSW5kZXgrKztcbiAgICAgIGlmIChzbGlkZUluZGV4ID49IHNsaWRlcy5sZW5ndGgpIHtcbiAgICAgICAgc2xpZGVJbmRleCA9IDA7XG4gICAgICB9XG4gICAgICBzaG93U2xpZGUoc2xpZGVJbmRleCk7XG4gICAgfVxuICAgIGZ1bmN0aW9uIHBsYXlTb25nKCkge1xuICAgICAgLy8gQWRkIHlvdXIgb3duIGxvZ2ljIHRvIHBsYXkgdGhlIHNvbmcgaGVyZVxuICAgICAgLy8gRm9yIGV4YW1wbGUsIHlvdSBjYW4gdXNlIGFuIDxhdWRpbz4gZWxlbWVudCBvciBhIEphdmFTY3JpcHQgYXVkaW8gbGlicmFyeVxuICAgICAgYWxlcnQoXCJTb25nIGlzIHBsYXlpbmchXCIpO1xuICAgIH1cblxuICAgIGZ1bmN0aW9uIG5hdmlnYXRlVG8oc2VjdGlvbklkKSB7XG4gICAgICBjb25zdCBzZWN0aW9uID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoc2VjdGlvbklkKTtcbiAgICAgIGlmIChzZWN0aW9uKSB7XG4gICAgICAgIHNlY3Rpb24uc2Nyb2xsSW50b1ZpZXcoeyBiZWhhdmlvcjogJ3Ntb290aCcgfSk7XG4gICAgICB9XG4gICAgfVxuXG5cbiJdfQ==</script></body></html>
